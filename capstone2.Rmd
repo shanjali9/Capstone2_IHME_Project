@@ -1,0 +1,62 @@
+## **CAPSTONE 2**
+
+**-SHANJALI ARUL**
+
+**-JUNE, 2024**
+
+**LIBRARIES**
+
+```{r}
+library("ggplot2")
+library("plotly")
+```
+
+**DATA ANALYSIS**
+
+```{r}
+
+IHME <- read.csv("IHME.csv")
+IHME 
+
+summary(IHME)
+```
+
+**DATA VISUALIZATION (using ggplot2)**
+
+**SCATTERPLOT**
+
+```{r}
+
+# Scatterplot of Avg cost of Insurance by sex
+ggplot(IHME, aes(y= sex, x=mean_all)) +
+    geom_point()
+
+# Scatterplot of Avg cost of Insurance by age group
+ggplot(IHME, aes(y=age_group_id, x=mean_all)) +
+    geom_point()
+
+# Scatterplot of Avg cost of Insurance by Cause of Visit 
+ggplot(IHME, aes(y=acause, x=mean_all)) +
+    geom_point()
+
+# Scatterplot of Avg cost of Public Insurance by Cause of Visit 
+ggplot(IHME, aes(y=acause, x=mean_pub)) +
+    geom_point()
+
+# Scatterplot of Avg cost of Public Insurance by Cause of Visit 
+ggplot(IHME, aes(y=acause, x=mean_pri)) +
+    geom_point()
+
+# Scatterplot of Avg cost of Out of Pocket Care by Cause of Visit 
+ggplot(IHME, aes(y=acause, x=mean_oop)) +
+    geom_point()
+```
+
+**BOXPLOT**
+
+-Plotting boxplot to visualize different costs of insurance by type of care
+
+```{r}
+
+ggplot(IHME, aes(x=mean_all, y=type_of_care)) + geom_boxplot() + geom_point()
+```
